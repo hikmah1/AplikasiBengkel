@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7bd947ca-28fe-461c-981d-7443faa690e1">
+	<property name="ireport.zoom" value="1.2100000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="no_service" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     isi.`no_services` AS isi_no_services,
+     isi.`kd_sp` AS isi_kd_sp,
+     isi.`jml_item` AS isi_jml_item,
+     isi.`discount` AS isi_discount,
+     isi.`jml_bayar` AS isi_jml_bayar,
+     isi.`nm_pel` AS isi_nm_pel,
+     spareparts.`kd_sp` AS spareparts_kd_sp,
+     spareparts.`nm_sp` AS spareparts_nm_sp,
+     spareparts.`harga` AS spareparts_harga
+FROM
+     `spareparts` spareparts INNER JOIN `isi` isi ON spareparts.`kd_sp` = isi.`kd_sp`
+WHERE
+     isi.no_services = $P{no_service}]]>
+	</queryString>
+	<field name="isi_no_services" class="java.lang.String"/>
+	<field name="isi_kd_sp" class="java.lang.Integer"/>
+	<field name="isi_jml_item" class="java.lang.String"/>
+	<field name="isi_discount" class="java.lang.String"/>
+	<field name="isi_jml_bayar" class="java.lang.String"/>
+	<field name="isi_nm_pel" class="java.lang.String"/>
+	<field name="spareparts_kd_sp" class="java.lang.Integer"/>
+	<field name="spareparts_nm_sp" class="java.lang.String"/>
+	<field name="spareparts_harga" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="95" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="5cfd9a07-bf94-49ec-8267-faba535c8937" x="217" y="11" width="341" height="26"/>
+				<textElement textAlignment="Center">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[PT. BENGKEL ASHIAPP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5cfd9a07-bf94-49ec-8267-faba535c8937" x="217" y="37" width="341" height="21"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Jl. Dimana Saja no 8 Indonesia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5cfd9a07-bf94-49ec-8267-faba535c8937" x="217" y="59" width="341" height="21"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Tlp. 021xxxxxx]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="44" splitType="Stretch">
+			<textField>
+				<reportElement uuid="5bbf1719-78eb-4912-b82c-9c73cb67be09" x="702" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{isi_nm_pel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="02c4d49c-fb62-4f52-8595-dcb4da00aab3" x="139" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{isi_no_services}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement uuid="fb4e0b01-3bee-4473-b9ab-60276fc48cc2" x="139" y="15" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="e8ea3b77-631e-48da-9cbc-cebfe6fff78b" x="39" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Static text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e8ea3b77-631e-48da-9cbc-cebfe6fff78b" x="39" y="20" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Static text]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="9322ca7e-dce4-4ee9-aa09-4d97dfdcdbbd" x="0" y="11" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Kode Spareparts]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2f470653-cd24-48a8-9c11-3e810bc943f0" x="139" y="11" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nama Spareparts]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="43058fed-f6ab-487a-91df-654ec47024c5" x="309" y="11" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Jumlah Item]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="532c127c-c997-4dc1-bed7-1f43629d4684" x="490" y="11" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Harga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5cadb770-3900-42cc-a6f1-ce88233cd574" x="670" y="11" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Total Bayar]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement uuid="af9ff8f8-e959-4a6d-a4d1-d420f10d82cf" x="0" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{isi_kd_sp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="084c4081-ffe4-41d2-9287-589099700c4f" x="139" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{spareparts_nm_sp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="87b419ef-a5f8-4fa7-91dc-e83c0886ced5" x="309" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{isi_jml_item}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3a3ee773-84af-447b-90ed-0b72c9818a54" x="490" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{spareparts_harga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c047f8ce-b450-439a-9e89-bceb05c6b1f0" x="670" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{isi_jml_bayar}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
